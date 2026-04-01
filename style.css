@@ -1,0 +1,375 @@
+/* =========================================
+   Estilos Globais e Variáveis de Cores (image_0.png)
+   ========================================= */
+:root {
+    --primary-color: #3b5037; /* Verde escuro do logo */
+    --secondary-color: #6b8e23; /* Oliva do logo (image_1.png) */
+    --accent-color: #d18b45; /* Laranja terra da montanha e telhado (image_0.png) */
+    --text-dark: #2c3e2b;
+    --text-light: #666;
+    --bg-light: #f4f7f5;
+    --bg-accent: #fdf2e9; /* Fundo laranja terra muito claro */
+    --white: #ffffff;
+    
+    /* Tipografia de Alto Padrão */
+    --font-main: 'Poppins', sans-serif;
+    --font-serif: 'Playfair Display', serif; /* Fonte elegante para títulos */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-dark);
+    line-height: 1.6;
+    background-color: var(--white);
+    scroll-behavior: smooth;
+}
+
+.container {
+    width: 90%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* =========================================
+   Cabeçalho (Header)
+   ========================================= */
+header {
+    background-color: var(--white);
+    padding: 30px 0;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+height: 160px;
+}
+
+.header-info {
+    text-align: right;
+}
+
+.header-info h1 {
+    font-family: var(--font-serif);
+    font-size: 2.8em;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.header-info p {
+    color: var(--secondary-color);
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.week-text {
+    font-style: italic;
+    color: var(--text-light);
+    font-size: 0.9em;
+}
+
+/* =========================================
+   Navegação de Dias (image_1.png)
+   ========================================= */
+.week-nav {
+    background-color: var(--primary-color); /* Fundo verde escuro */
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.week-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.week-nav li a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+.week-nav li a:hover, 
+.week-nav li.active a {
+    color: var(--primary-color);
+    background-color: var(--white);
+    border-radius: 20px;
+}
+
+/* =========================================
+   Conteúdo da Agenda e Cards
+   ========================================= */
+main {
+    padding: 60px 0;
+}
+
+.day-section {
+    display: none; /* Oculta todos os dias inicialmente */
+}
+
+.day-section.active-day {
+    display: block; /* Mostra o dia ativo */
+}
+
+.day-title {
+    font-family: var(--font-serif);
+    font-size: 2.5em;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+    border-bottom: 4px solid var(--secondary-color);
+    padding-bottom: 10px;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Base do Card */
+.card {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border: 1px solid var(--bg-light);
+    transition: transform 0.3s ease;
+    text-align: center;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card .time {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.card h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+/* Cores de Eventos (Inspirado no logo) */
+/* Despertar (Laranja Terra) */
+.event-wakeup {
+    border-top: 5px solid var(--accent-color);
+}
+.event-wakeup .time { color: var(--accent-color); }
+
+/* Refeições (Verde Oliva -image_1.png) */
+.event-meal {
+    border-top: 5px solid var(--secondary-color);
+    background-color: rgba(107, 142, 35, 0.05); /* Oliva suave */
+}
+.event-meal .time { color: var(--secondary-color); }
+
+/* Terapias e Passos (Verde Escuro) */
+.event-therapy {
+    border-top: 5px solid var(--primary-color);
+}
+.event-therapy h3 { color: var(--primary-color); }
+
+/* Atividades Comuns (Fundo Claro) */
+.event-activity {
+    background-color: var(--bg-light);
+}
+
+/* Tempo Livre (Símbolo de Lazer) */
+.event-free {
+    background-color: rgba(209, 139, 69, 0.05); /* Laranja terra suave */
+    border: 2px dashed var(--accent-color);
+}
+.event-free .time { color: var(--accent-color); }
+
+/* Recolher/Silêncio (Fundo Neutro) */
+.event-recolher { background-color: #eceff1; }
+.event-silence { background-color: #37474f; color: var(--white); }
+.event-silence .time { color: var(--white); }
+
+/* Destaques Especiais (image_0.png) */
+.highlight-special {
+    background-color: var(--bg-accent); /* Laranja terra claro */
+    border: 3px solid var(--accent-color);
+}
+.highlight-special h3 {
+    color: var(--text-dark);
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* =========================================
+   Rodapé (Footer)
+   ========================================= */
+footer {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 30px 0;
+}
+
+.footer-bottom {
+    text-align: center;
+    font-size: 0.9em;
+}
+
+/* =========================================
+   Responsividade Básica (image_1.png)
+   ========================================= */
+@media (max-width: 992px) {
+    .header-info h1 { font-size: 2.2em; }
+    .week-nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+}
+
+@media (max-width: 768px) {
+    .header-container { flex-direction: column; text-align: center; }
+    .header-info { text-align: center; margin-top: 20px; }
+    .header-info h1 { font-size: 1.8em; }
+    .week-nav li a { font-size: 1em; }
+    
+    .day-title { font-size: 2em; }
+    .activity-grid { grid-template-columns: 1fr; }
+
+    /* =========================================
+   Responsividade para Mobile (Agenda)
+   ========================================= */
+
+@media (max-width: 768px) {
+    /* 1. Ajuste do Cabeçalho */
+    header {
+        padding: 20px 0;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .header-info {
+        text-align: center;
+    }
+
+    .header-info h1 {
+        font-size: 1.8em;
+    }
+
+    .logo img {
+        height: 70px;
+    }
+
+    /* 2. Menu de Dias Deslizante (Scroll Horizontal) */
+    /* Isso permite que o usuário arraste os dias para o lado no celular */
+    .week-nav {
+        padding: 10px 0;
+    }
+
+    .week-nav .container {
+        width: 100%;
+        padding: 0;
+    }
+
+    .week-nav ul {
+        justify-content: flex-start;
+        overflow-x: auto; /* Ativa o scroll horizontal */
+        white-space: nowrap; /* Impede os dias de quebrarem linha */
+        padding: 5px 20px;
+        -webkit-overflow-scrolling: touch; /* Scroll suave no iPhone */
+        gap: 15px;
+    }
+
+    /* Esconder a barra de rolagem visual para ficar mais limpo */
+    .week-nav ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    .week-nav li a {
+        font-size: 0.95em;
+        padding: 8px 15px;
+    }
+
+    /* 3. Ajuste dos Cards de Atividades */
+    main {
+        padding: 30px 0;
+    }
+
+    .day-title {
+        font-size: 1.8em;
+        text-align: center;
+    }
+
+    .activity-grid {
+        grid-template-columns: 1fr; /* Força uma única coluna no celular */
+        gap: 15px;
+    }
+
+    .card {
+        padding: 15px;
+        display: flex; /* Alinha hora e atividade lado a lado no celular para economizar espaço */
+        align-items: center;
+        text-align: left;
+        gap: 20px;
+    }
+
+    .card .time {
+        font-size: 1.2em;
+        margin-bottom: 0;
+        min-width: 70px;
+        border-right: 2px solid #eee;
+    }
+
+    .card h3 {
+        font-size: 1em;
+    }
+
+    /* Ajuste específico para o card de destaque (Faxinão/Lazer) */
+    .highlight-special {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .highlight-special .time {
+        border-right: none;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+        padding-bottom: 5px;
+        margin-bottom: 5px;
+        width: 100%;
+    }
+}
+
+/* Ajustes para telas muito pequenas (iPhone SE, etc) */
+@media (max-width: 400px) {
+    .header-info h1 {
+        font-size: 1.5em;
+    }
+    
+    .card {
+        gap: 10px;
+    }
+    
+    .card .time {
+        font-size: 1.1em;
+        min-width: 60px;
+    }
+}
+}
